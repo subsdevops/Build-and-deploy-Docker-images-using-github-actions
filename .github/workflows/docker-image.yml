@@ -19,7 +19,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER _PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"
     - name: Build the docker image    
       run: docker build . --file Dockerfile --tag node.js-example/nodejs-sample-app:$(date +%s)
     - name: Docker push
